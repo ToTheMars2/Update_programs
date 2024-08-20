@@ -15,7 +15,6 @@ rm go$GO_VERSION.linux-amd64.tar.gz
 sed -i '/export GOROOT=\/usr\/local\/go/d' ~/.bashrc
 sed -i '/export GOPATH=\$HOME\/go/d' ~/.bashrc
 sed -i '/export PATH=\$GOPATH\/bin:\$GOROOT\/bin:\$PATH/d' ~/.bashrc
-read -p "Add path to .bashrc? (y/n): " answer
 echo -e 'export GOROOT=/usr/local/go\nexport GOPATH=$HOME/go\nexport PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bashrc
 echo "you need enter   source .bashrc "
 # Вивести версію Go
