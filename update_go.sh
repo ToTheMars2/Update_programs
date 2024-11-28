@@ -64,6 +64,7 @@ go version
 
 if [ $? -eq 0 ]; then
     echo "Go version $GO_VERSION installed successfully!"
+    echo -e "To apply the changes to the variables, run:\nsource ~/.bashrc"
 else
     echo "Error: Go installation failed." >&2
     exit 1
