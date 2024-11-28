@@ -36,10 +36,12 @@ sudo tar -C /usr/local -xzf /tmp/go${GO_VERSION}.linux-amd64.tar.gz
 # Remove the downloaded archive
 rm /tmp/go${GO_VERSION}.linux-amd64.tar.gz
 
-# Set environment variables directly in the script
+# Create go_env.sh
+sudo tee /etc/profile.d/go_env.sh > /dev/null <<EOL
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+EOL
 
 # Update environment variables
 echo "Updating environment variables..."
@@ -56,6 +58,7 @@ EOL
 
 # Load environment variables
 echo "Applying environment changes..."
+source /etc/profile
 source ~/.bashrc
 
 # Verify installation
