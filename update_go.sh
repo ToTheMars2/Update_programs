@@ -36,6 +36,11 @@ sudo tar -C /usr/local -xzf /tmp/go${GO_VERSION}.linux-amd64.tar.gz
 # Remove the downloaded archive
 rm /tmp/go${GO_VERSION}.linux-amd64.tar.gz
 
+# Set environment variables directly in the script
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
 # Update environment variables
 echo "Updating environment variables..."
 sed -i '/export GOROOT=\/usr\/local\/go/d' ~/.bashrc
