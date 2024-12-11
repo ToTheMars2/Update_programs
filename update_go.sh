@@ -2,6 +2,7 @@
 
 # Install Go with the specified version or use the default version
 GO_VERSION=${1:-"1.19.5"}
+HOME=${2:-"/root"}
 
 # URL to download Go
 GO_URL="https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz"
@@ -43,9 +44,9 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # Update environment variables
 echo "Updating environment variables..."
-sed -i '/export GOROOT=\/usr\/local\/go/d' ~/.bashrc
-sed -i '/export GOPATH=\$HOME\/go/d' ~/.bashrc
-sed -i '/export PATH=\$GOPATH\/bin:\$GOROOT\/bin:\$PATH/d' ~/.bashrc
+sed -i '/export GOROOT=\/usr\/local\/go/d' $HOME/.bashrc
+sed -i '/export GOPATH=\$HOME\/go/d' $HOME/.bashrc
+sed -i '/export PATH=\$GOPATH\/bin:\$GOROOT\/bin:\$PATH/d' $HOME/.bashrc
 
 cat <<EOL >> ~/.bashrc
 # Go environment variables
@@ -56,7 +57,7 @@ EOL
 
 # Load environment variables
 echo "Applying environment changes..."
-source ~/.bashrc
+source $HOME/.bashrc
 
 # Verify installation
 echo "Verifying the installed Go version..."
